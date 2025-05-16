@@ -37,7 +37,7 @@ function prettify() {
 }
 
 async function injectMarquees() {
-  let marquees = await getJSON("/json/community.json");
+  let marquees = await getJSON("json/community.json");
   document.getElementById("Markey").innerHTML=marquees[Math.floor(Math.random()*marquees.length)].quote;
 }
 

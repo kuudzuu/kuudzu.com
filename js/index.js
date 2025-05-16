@@ -31,7 +31,6 @@ function adjustSize() {
 async function navClick(source) {
   setAllBlack();
   if (source != CURR_PAGE) {
-    await startTransition(); 
     TIME = Date.now();
   }
   CURR_PAGE = source;
@@ -47,57 +46,57 @@ function updateSource(source){
   scrolled(0);
   switch (source) {
     case "Title":
-      src=(ORIENTATION === "Landscape" ? "/title.html": "/title.html");
+      src=(ORIENTATION === "Landscape" ? "title.html": "title.html");
       document.getElementById("Title").innerHTML = "Invasive Website";
-      document.getElementById('Navbar').style.backgroundImage = "url(\"/img/nav/magenta.png\")";
+      document.getElementById('Navbar').style.backgroundImage = "url(\"img/index/texture/magenta.png\")";
       document.getElementById("HomePic").style.backgroundColor = background_color;
       document.getElementById("HomePic").style.boxShadow = box_shadow;
       deactivateArrows();
       break;
     case "Art":
-      src=(ORIENTATION === "Landscape" ? "/art.html": "/art.html");
+      src=(ORIENTATION === "Landscape" ? "art.html": "art.html");
       document.getElementById("Title").innerHTML = "Invasive Artworks";
-      document.getElementById('Navbar').style.backgroundImage = "url(\"/img/nav/purple.png\")";
+      document.getElementById('Navbar').style.backgroundImage = "url(\"img/index/texture/purple.png\")";
       document.getElementById("ArtPic").style.backgroundColor = background_color;
       document.getElementById("ArtPic").style.boxShadow = box_shadow;
       activateArrow("ArrowDown");
       break;
     case "Community":
-      src=(ORIENTATION === "Landscape" ? "/community.html": "/community.html");
+      src=(ORIENTATION === "Landscape" ? "community.html": "community.html");
       document.getElementById("Title").innerHTML = "Invasive Community";
-      document.getElementById('Navbar').style.backgroundImage = "url(\"/img/nav/cyan.png\")";
+      document.getElementById('Navbar').style.backgroundImage = "url(\"img/index/texture/cyan.png\")";
       document.getElementById("CommunityPic").style.backgroundColor = background_color;
       document.getElementById("CommunityPic").style.boxShadow = box_shadow;
       activateArrow("ArrowDown");
       break;
     case "Writing":
-      src=(ORIENTATION === "Landscape" ? "/writing.html": "/writing.html");
+      src=(ORIENTATION === "Landscape" ? "writing.html": "writing.html");
       document.getElementById("Title").innerHTML = "Invasive Writing";
-      document.getElementById('Navbar').style.backgroundImage = "url(\"/img/nav/blue.png\")";
+      document.getElementById('Navbar').style.backgroundImage = "url(\"img/index/texture/blue.png\")";
       document.getElementById("WritingPic").style.backgroundColor = background_color;
       document.getElementById("WritingPic").style.boxShadow = box_shadow;
       deactivateArrows();
       break;
     case "Thoughts":
-      src=(ORIENTATION === "Landscape" ? "/thoughts.html": "/thoughts.html");
+      src=(ORIENTATION === "Landscape" ? "thoughts.html": "thoughts.html");
       document.getElementById("Title").innerHTML = "Invasive Thoughts";
-      document.getElementById("Navbar").style.backgroundImage = "url('img/nav/yellow.png')";
+      document.getElementById("Navbar").style.backgroundImage = "url('img/index/texture/yellow.png')";
       document.getElementById("ThoughtsPic").style.backgroundColor = background_color;
       document.getElementById("ThoughtsPic").style.boxShadow = box_shadow;
       activateArrow("ArrowDown");
       break;
     case "Accretion":
-      src=(ORIENTATION === "Landscape" ? "/accretion.html": "/accretion.html");
+      src=(ORIENTATION === "Landscape" ? "accretion.html": "accretion.html");
       document.getElementById("Title").innerHTML = "Invasive Accretion";
-      document.getElementById('Navbar').style.backgroundImage = "url(\"/img/nav/coral.png\")";
+      document.getElementById('Navbar').style.backgroundImage = "url(\"img/index/texture/coral.png\")";
       document.getElementById("AccretionPic").style.backgroundColor = background_color;
       document.getElementById("AccretionPic").style.boxShadow = box_shadow;
       deactivateArrows();
       break;
     case "Runoff":
-      src=(ORIENTATION === "Landscape" ? "/runoff.html": "/runoff.html");
+      src=(ORIENTATION === "Landscape" ? "runoff.html": "runoff.html");
       document.getElementById("Title").innerHTML = "Invasive Runoff";
-      document.getElementById('Navbar').style.backgroundImage = "url(\"/img/nav/orange.png\")";
+      document.getElementById('Navbar').style.backgroundImage = "url(\"img/index/texture/orange.png\")";
       document.getElementById("RunoffPic").style.backgroundColor = background_color;
       document.getElementById("RunoffPic").style.boxShadow = box_shadow;
       activateArrow("ArrowDown");
@@ -112,73 +111,6 @@ function updateSource(source){
   
   iframe.src = src;
   
-}
-
-// -------------------- Transitionary gif
-async function startTransition() {
-  document.getElementById("Blink1").style.display = "inline";
-  reloadBlink(1);
-  await delay(500); 
-  document.getElementById("TransitionBG").style.display = "inline";
-  document.getElementById("Transition").style.display = "inline";
-  animateTransition();
-}
-
-async function animateTransition() {
-  document.getElementById("Transition").animate(
-    [
-      // keyframes
-      { transform: "translateY(0px)" },
-      { transform: "translateY(15px)" },
-    ],
-    {
-      // timing options
-      duration: 1500,
-      iterations: 1,
-      easing: "ease-in-out",
-      composite: "add",
-    }
-  );
-  await delay(200);
-  document.getElementById("Transition").animate(
-    [
-      // keyframes
-      { transform: "translateX(0px)" },
-      { transform: "translateX(-20px)" },
-      { transform: "translateX(0px)" },
-    ],
-    {
-      // timing options
-      duration: 1500,
-      iterations: 1,
-      easing: "ease-in-out",
-      composite: "add",
-    }
-  );
-}
-
-async function endTransition() {
-  if (!FIRST_LOAD) {
-    while ((Date.now() - TIME) <= 500) {
-      await delay(100); 
-    }
-    reloadBlink(2);
-    await delay(500); 
-    document.getElementById("TransitionBG").style.display = "none";
-    document.getElementById("Transition").style.display = "none";
-    await delay(200); 
-    document.getElementById("Blink2").style.display = "none";
-  } else {
-   FIRST_LOAD = false; 
-  }
-}
-
-function reloadBlink(num) {
-  let blink = document.getElementById("Blink" + num.toString());
-  let src = blink.src.split('?')[0];
-  blink.src = '';
-  blink.src = `${src}?t=${Date.now()}`;
-  blink.style.display = "inline";
 }
 
 // -------------------- Navbar update
@@ -274,14 +206,14 @@ function scrolled(position) {
 // -------------------- Error 404
 async function handleLoad() {
 // (Mostly) fixes bugs with clicking on pages that don't exist. 
-// Likely deprecated once all nav click buttons have been filled? 
+// Likely deprecated once all index click buttons have been filled?
 // We'll see abt sub pages.
   const urlExists = await ifUrlExist(document.getElementById('iframe').src)
   if (!urlExists && on404) {
     ON_404 = false;
     setAllBlack();
     document.getElementById("Title").innerHTML = "Invasive Website";
-    document.getElementById('RightNav').src = "/img/nav/nav_right_magenta.jpg";
+    document.getElementById('RightNav').src = "/img/index/nav_right_magenta.jpg";
     document.getElementById("HomePic").style.backgroundColor = "rgba(255, 255, 255, 0.2)";
     document.getElementById("HomePic").style.boxShadow = `-1px -3px 0 2px #000 inset, -2px -4px 0 3px rgba(0, 0, 0, 0.5) inset, 1px 0px 0 1px rgba(255, 255, 255, 0.75) inset, 2px 1px 0 2px rgba(255, 255, 255, 0.3) inset`;
   } else if (!urlExists) {

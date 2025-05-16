@@ -23,7 +23,7 @@ async function injectText() {
   
   innerHTML += `<div id="Horizontal"></div>`;
   
-  document.getElementById("ProcessingImport").innerHTML += innerHTML;
+  document.getElementById("ProcessingImport").innerHTML += "\n\n\nTemporarily unavailable";//innerHTML;
 }
 // ---------------------------------------------- utility
 // ------------------------------------------------------------------------ LISTENERS

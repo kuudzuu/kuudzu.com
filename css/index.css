@@ -54,7 +54,6 @@ body
   
   z-index: 999999999;
   pointer-events: none;
-  background-image: url("img/nav/transition_bg.png"); 
 }
 #Transition {
   display: none;
@@ -90,7 +89,7 @@ body
   min-height: 190px;
   
   z-index: 99;
-  background-image: url('/img/nav/bg/shadow.png');
+  background-image: url('/img/index/texture/shadow.png');
   background-size: auto 190px;
   background-position: center;
   background-color: rgba(0, 0, 0, 0);
@@ -110,7 +109,7 @@ body
   
   z-index: 99;
   overflow: hidden;
-  background-image: url('/img/nav/bg/magenta.png');
+  background-image: url('/img/index/texture/magenta.png');
   background-size: auto 135px;
   background-position: center;
   background-color: rgba(0, 0, 0, 0);
@@ -140,7 +139,7 @@ body
 	
 	color: #36593d;
 	z-index: 9999999999;
-	background-image: url("/img/nav/navbar_bg.png");
+	background-image: url("/img/index/navbar_bg.png");
   background-position: center;
   background-size: 100% 100%;
 }
