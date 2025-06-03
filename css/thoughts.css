@@ -61,6 +61,29 @@ body
   height: 8vh;
 }
 
+/* Plants --------------------------------------------------------------- */
+#PlantsRight
+{
+  margin: 0;
+  padding: 0;
+  right: 0;
+  z-index: 999;
+  height: 100%;
+
+  position: absolute;
+}
+
+#PlantsLeft
+{
+  margin: 0;
+  padding: 0;
+  left: 0;
+  z-index: 999;
+  height: 100%;
+
+  position: absolute;
+}
+
 /* Sticky --------------------------------------------------------------- */
 #HorizontalSticky
 {
@@ -70,7 +93,7 @@ body
   border: 1px solid #203d00;
   justify-content: center;
   display: flex;
-  z-index: 999999;
+  z-index: 99;
   position: sticky;
 }
 .Sticky {

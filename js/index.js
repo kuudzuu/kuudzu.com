@@ -48,7 +48,7 @@ function updateSource(source){
     case "Title":
       src=(ORIENTATION === "Landscape" ? "title.html": "title.html");
       document.getElementById("Title").innerHTML = "Invasive Website";
-      document.getElementById('Navbar').style.backgroundImage = "url(\"img/index/texture/magenta.png\")";
+      document.getElementById("Right").src = "img/index/nav_bgs/magenta.png";
       document.getElementById("HomePic").style.backgroundColor = background_color;
       document.getElementById("HomePic").style.boxShadow = box_shadow;
       deactivateArrows();
@@ -56,7 +56,7 @@ function updateSource(source){
     case "Art":
       src=(ORIENTATION === "Landscape" ? "art.html": "art.html");
       document.getElementById("Title").innerHTML = "Invasive Artworks";
-      document.getElementById('Navbar').style.backgroundImage = "url(\"img/index/texture/purple.png\")";
+      document.getElementById('Right').src = "img/index/nav_bgs/purple.png";
       document.getElementById("ArtPic").style.backgroundColor = background_color;
       document.getElementById("ArtPic").style.boxShadow = box_shadow;
       activateArrow("ArrowDown");
@@ -64,7 +64,7 @@ function updateSource(source){
     case "Community":
       src=(ORIENTATION === "Landscape" ? "community.html": "community.html");
       document.getElementById("Title").innerHTML = "Invasive Community";
-      document.getElementById('Navbar').style.backgroundImage = "url(\"img/index/texture/cyan.png\")";
+      document.getElementById('Right').src = "img/index/nav_bgs/cyan.png";
       document.getElementById("CommunityPic").style.backgroundColor = background_color;
       document.getElementById("CommunityPic").style.boxShadow = box_shadow;
       activateArrow("ArrowDown");
@@ -72,7 +72,7 @@ function updateSource(source){
     case "Writing":
       src=(ORIENTATION === "Landscape" ? "writing.html": "writing.html");
       document.getElementById("Title").innerHTML = "Invasive Writing";
-      document.getElementById('Navbar').style.backgroundImage = "url(\"img/index/texture/blue.png\")";
+      document.getElementById('Right').src = "img/index/nav_bgs/blue.png";
       document.getElementById("WritingPic").style.backgroundColor = background_color;
       document.getElementById("WritingPic").style.boxShadow = box_shadow;
       deactivateArrows();
@@ -80,7 +80,7 @@ function updateSource(source){
     case "Thoughts":
       src=(ORIENTATION === "Landscape" ? "thoughts.html": "thoughts.html");
       document.getElementById("Title").innerHTML = "Invasive Thoughts";
-      document.getElementById("Navbar").style.backgroundImage = "url('img/index/texture/yellow.png')";
+      document.getElementById('Right').src = "img/index/nav_bgs/yellow.png";
       document.getElementById("ThoughtsPic").style.backgroundColor = background_color;
       document.getElementById("ThoughtsPic").style.boxShadow = box_shadow;
       activateArrow("ArrowDown");
@@ -88,7 +88,7 @@ function updateSource(source){
     case "Accretion":
       src=(ORIENTATION === "Landscape" ? "accretion.html": "accretion.html");
       document.getElementById("Title").innerHTML = "Invasive Accretion";
-      document.getElementById('Navbar').style.backgroundImage = "url(\"img/index/texture/coral.png\")";
+      document.getElementById('Right').src = "img/index/nav_bgs/coral.png";
       document.getElementById("AccretionPic").style.backgroundColor = background_color;
       document.getElementById("AccretionPic").style.boxShadow = box_shadow;
       deactivateArrows();
@@ -96,7 +96,7 @@ function updateSource(source){
     case "Runoff":
       src=(ORIENTATION === "Landscape" ? "runoff.html": "runoff.html");
       document.getElementById("Title").innerHTML = "Invasive Runoff";
-      document.getElementById('Navbar').style.backgroundImage = "url(\"img/index/texture/orange.png\")";
+      document.getElementById('Right').src = "img/index/nav_bgs/orange.png";
       document.getElementById("RunoffPic").style.backgroundColor = background_color;
       document.getElementById("RunoffPic").style.boxShadow = box_shadow;
       activateArrow("ArrowDown");
@@ -105,8 +105,23 @@ function updateSource(source){
       src="/not_found.html";
       document.getElementById("Title").innerHTML = "Missing";
       missing = true;
-      endTransition();
       break;
+  }
+
+  if (CONSTRUCTION) {
+    switch (source) {
+      case "Title":
+        src="under.html";
+        document.getElementById("Title").innerHTML = "Under";
+        missing = true;
+        break;
+      default:
+        src="not_found.html";
+        document.getElementById("Title").innerHTML = "Missing";
+        missing = true;
+        break;
+    }
+    deactivateArrows();
   }
   
   iframe.src = src;

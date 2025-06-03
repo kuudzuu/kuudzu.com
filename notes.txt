@@ -1,0 +1,48 @@
+<!------------------------------------------ Head ------------------------------------------>
+<!------------------------------------------ Body ------------------------------------------>
+<!----------------------------------------- Scripts ---------------------------------------->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="/js/global_down.js"></script>
+
+
+
+
+
+
+Element {
+  external positioning
+  internal sizing
+  internal display
+  appearance
+}
+
+field: top right bottom left
+field: top left/right bottom
+field: top/bottom left/right
+field: all
+
+
+
+
+
+
+// ------------------------------------------------------------------------ VARIABLES
+// ------------------------------------------------------------------------ FUNCTIONS
+// ---------------------------------------------- public
+// ---------------------------------------------- private
+// ---------------------------------------------- utility
+// ------------------------------------------------------------------------ LISTENERS
+// ------------------------------------------------------------------------ RUNNERS
+
+
+
+
+
+
+Width is INSIDE of both padding and margin. 2% padding both sides and 2% margin both sides plus 92% width = 100% overall width
+
+methods_snake_case
+variablesCamelCase
+ElementsUpperCase
+GLOABLS_SCREAMING

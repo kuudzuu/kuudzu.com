@@ -1,10 +1,12 @@
 body
 {
+  height: 100vh;
+  width: 100vw;
   margin: 0;
   padding: 0;
-  
+
   overflow: hidden;
-  
+
   background-color: black;
   color: white;
 }
@@ -68,17 +70,22 @@ body
 }
 
 /* iframe lmaoooo */
+#iframeHolder
+{
+  height: calc(100% - 69px);
+}
 #iframe
 {
   margin: 0;
   padding: 0;
-  min-width: 100vw;
-  min-height: 100vh;
+  min-width: 100%;
+  min-height: 100%;
   
   overflow: hidden;
 }
 
 /* Navbar */
+/*
 #NavShading {
   position: fixed;
   bottom: 0;
@@ -95,81 +102,91 @@ body
   background-color: rgba(0, 0, 0, 0);
   pointer-events: none;
 }
+*/
 #Navbar {
   position: fixed;
-	bottom: 0;
+    bottom: 0;
+
+  height: 69px;
+    min-height: 69px;
+    max-height: 69px;
+  width: 100vw;
+    min-width: 100vw;
+    max-width: 100vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  z-index: 9;
+  overflow: hidden;
+  background-size: auto 135px;
+  background-position: center 69px;
+  background-color: rgba(0, 0, 0, 0);
+  image-rendering: pixelated;
+  pointer-events: none;
+}
+#NavBG
+{
+  position: fixed;
   height: 135px;
   min-height: 135px;
   width: 100vw;
   min-width: 100vw;
-  max-width: 100vw;
-  
+  bottom: 0;
+
+  display: flex;
   justify-content: center;
   align-items: center;
-  
-  z-index: 99;
-  overflow: hidden;
-  background-image: url('/img/index/texture/magenta.png');
-  background-size: auto 135px;
-  background-position: center;
-  background-color: rgba(0, 0, 0, 0);
+
   image-rendering: pixelated;
-  pointer-events: none;
+}
+#RepeatingTexture
+{
+  position: fixed;
+  bottom: 0;
+  height: inherit;
+  width: auto;
+  z-index: 5;
+}
+#Left
+{
+  left: -50%;
+  bottom: 0;
+  height: inherit;
+  width: auto;
+  z-index: 6;
+  margin: 0 auto 0 0;
+}
+#Center
+{
+  bottom: 0;
+  height: inherit;
+  width: auto;
+  min-width: 500px;
+  z-index: 7;
+  margin: 0;
+}
+#Right
+{
+  bottom: 0;
+  height: inherit;
+  width: auto;
+  z-index: 6;
+  margin: 0 0 0 auto;
 }
 #NavContent
 {
   position: absolute;
   display: flex;
   bottom: 0;
-  height: 50.75%;
+  height: 69px;
   width: 100%;
   
   justify-content: center;
   align-items: center;
   image-rendering: auto;
 }
-
-/* Navbar 
-#Navbar
-{
-  position: fixed;
-	bottom: 0;
-	width: 100%;
-	height: 7%;
-	
-	color: #36593d;
-	z-index: 9999999999;
-	background-image: url("/img/index/navbar_bg.png");
-  background-position: center;
-  background-size: 100% 100%;
-}
-#NavLeft {
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-#NavRight {
-  justify-content: flex-end;
-  align-items: flex-end;
-}
-#NavContent
-{
-  margin: 0;
-  top: 0%;
-  height: 100%;
-  
-  z-index: 2;
-}
-#NavWhiteLine
-{
-  margin: 0;
-  top: 0;
-  height: 2%;
-  width: 100%;
-  
-  z-index: 3;
-  background-color: #FFFFFF;
-}
-*/
 
 /* Icons */
 .NavIcon {

@@ -1,0 +1,26 @@
+body {
+    background: black;
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none
+}
+#NotFoundContent {
+    overflow: hidden;
+}
+#Warning {
+    color: #5c046b;
+    text-shadow: -1px -1px 0px #0d591f, 1px -1px 0px #0d591f, -1px 1px 0px #0d591f, 1px 1px 0px #0d591f;
+    padding: 0;
+    margin-bottom: 2vh;
+    font-size: 52px;
+}
+#Face {
+    width: 100vw;
+    height: 90vh;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    overflow: hidden;
+}

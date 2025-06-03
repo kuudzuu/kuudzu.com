@@ -14,7 +14,6 @@ a {
   padding: 0;
   margin-bottom: -3vh;
   font-size: 52px;
-  cursor: pointer;
 }
 #Face {
   width: 100vw;
@@ -28,7 +27,6 @@ a {
 .Eye {
   height: 150px;
   padding: 1vw;
-  cursor: pointer;
 }
 #LeftEye {
   transform: rotate(-2deg); 
