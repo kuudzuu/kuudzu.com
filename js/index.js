@@ -2,16 +2,44 @@
 let ORIENTATION = "Origin";
 let CURR_PAGE = "Title";
 let ON_404 = false;
-let TIME = 0;
-FIRST_LOAD = true;
+let FIRST_LOAD = true;
 
 let iframe = document.getElementById('iframe');
+
+let box_shadow = "-1px -3px 0 2px #000 inset, -2px -4px 0 3px rgba(0, 0, 0, 0.5) inset, 1px 0px 0 1px rgba(255, 255, 255, 0.75) inset, 2px 1px 0 2px rgba(255, 255, 255, 0.3) inset";
+let background_color = "rgba(255, 255, 255, 0.2)";
+
+var BLINK_GIF = new Image();
+BLINK_GIF.src = "img/index/transition/blink.gif";
+
 // ------------------------------------------------------------------------ FUNCTIONS
 // ---------------------------------------------- private
 function init() {
+  pruneNavbar();
   scrolled(0);
   adjustSize();
   deactivateArrows();
+}
+
+function pruneNavbar() {
+  if (!PAGES.get("Thoughts")) {
+    document.getElementById("ThoughtsLink").style.display = "none";
+  }
+  if (!PAGES.get("Writing")) {
+    document.getElementById("WritingLink").style.display = "none";
+  }
+  if (!PAGES.get("Art")) {
+    document.getElementById("ArtLink").style.display = "none";
+  }
+  if (!PAGES.get("Accretion")) {
+    document.getElementById("AccretionLink").style.display = "none";
+  }
+  if (!PAGES.get("Runoff")) {
+    document.getElementById("RunoffLink").style.display = "none";
+  }
+  if (!PAGES.get("Community")) {
+    document.getElementById("CommunityLink").style.display = "none";
+  }
 }
 
 // -------------------- Nav clicks
@@ -29,21 +57,28 @@ function adjustSize() {
 }
 
 async function navClick(source) {
-  setAllBlack();
-  if (source != CURR_PAGE) {
-    TIME = Date.now();
+  document.getElementById("Blink").src = BLINK_GIF.src;
+  if (source !== CURR_PAGE) {
+    setAllBlack();
+    setTimeout(updateSource, 300, source);
   }
-  CURR_PAGE = source;
-  updateSource(source);
 }
 
 function updateSource(source){
-  box_shadow = "-1px -3px 0 2px #000 inset, -2px -4px 0 3px rgba(0, 0, 0, 0.5) inset, 1px 0px 0 1px rgba(255, 255, 255, 0.75) inset, 2px 1px 0 2px rgba(255, 255, 255, 0.3) inset";
-  background_color = "rgba(255, 255, 255, 0.2)";
-  
+  if (FIRST_LOAD) {
+    FIRST_LOAD = false;
+  } else if (document.getElementById("TransitionContainer").style.display !== "initial") {
+    document.getElementById("TransitionContainer").style.display = "initial";
+  }
+
   src = "";
   
   scrolled(0);
+  if (!PAGES.get(source)) {
+    return;
+  }
+
+  CURR_PAGE = source;
   switch (source) {
     case "Title":
       src=(ORIENTATION === "Landscape" ? "title.html": "title.html");
@@ -67,7 +102,7 @@ function updateSource(source){
       document.getElementById('Right').src = "img/index/nav_bgs/cyan.png";
       document.getElementById("CommunityPic").style.backgroundColor = background_color;
       document.getElementById("CommunityPic").style.boxShadow = box_shadow;
-      activateArrow("ArrowDown");
+      deactivateArrows();
       break;
     case "Writing":
       src=(ORIENTATION === "Landscape" ? "writing.html": "writing.html");
@@ -102,7 +137,7 @@ function updateSource(source){
       activateArrow("ArrowDown");
       break;
     default: 
-      src="/not_found.html";
+      src="/404.html";
       document.getElementById("Title").innerHTML = "Missing";
       missing = true;
       break;
@@ -116,7 +151,7 @@ function updateSource(source){
         missing = true;
         break;
       default:
-        src="not_found.html";
+        src="404.html";
         document.getElementById("Title").innerHTML = "Missing";
         missing = true;
         break;
@@ -125,7 +160,7 @@ function updateSource(source){
   }
   
   iframe.src = src;
-  
+
 }
 
 // -------------------- Navbar update
@@ -275,4 +310,5 @@ document.getElementById('ArrowUp').addEventListener('mouseenter', () => {
 document.getElementById('ArrowUp').addEventListener('mouseleave', () => {
   document.getElementById('ArrowUp').style.transform = 'translateY(0px)';
 });
+
 init();

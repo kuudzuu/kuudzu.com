@@ -14,22 +14,23 @@
   </head>
   <!------------------------------------------ Body ------------------------------------------>
   <body>
-    <img id="Eyelid" src="img/artex/eyelids.png">
+    <div id="CurtainsContainer" class="Sticky">
+      <img id="Curtains" src="img/artex/curtains.png">
+    </div>
+
+    <!--
     <div id="TransitionsContainer">
       <img id="ArtTransition" src="img/artex/landmarks.png" onclick="loadArt()" class="flex-item">
       <img id="TextureTransition" src="img/artex/texture_bin.png" onclick="loadTextures()" class="flex-item">
     </div>
-  
-		<div id="BlackBox"> <!-- Black colored texture -->
-		  <img id="FingersTopLeft" src="img/artex/fingers_top_left.png">
-		  <img id="FingersTopRight" src="img/artex/fingers_top_right.png">
-		  <div id="ArtContent"></div> <!-- Invisible, prevents pictures n such from extending all the way to sides -->
-		  <img id="FingersBottomLeft" src="img/artex/fingers_bottom_left.png">
-		  <img id="FingersBottomRight" src="img/artex/fingers_bottom_right.png">
-		</div>
+    -->
+
+    <div id="BlackBox"> <!-- Black colored texture -->
+      <div id="ArtContent"></div> <!-- Invisible, prevents pictures n such from extending all the way to sides -->
+    </div>
 		
 	<!---------------------------------------- Scripts ----------------------------------------->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="js/global.js"></script>
     <script src="js/art.js"></script>
   </body>

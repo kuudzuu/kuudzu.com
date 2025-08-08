@@ -1,10 +1,19 @@
 // ------------------------------------------------------------------------ VARIABLES
 // let GLOBALS = getJSON("/json/global.json"); // await???
-let CONSTRUCTION = true;
+let CONSTRUCTION = false;
+let PAGES = new Map([
+    ["Title", true],
+    ["Thoughts", true],
+    ["Writing", true],
+    ["Art", true],
+    ["Accretion", false],
+    ["Runoff", false],
+    ["Community", true],
+]);
 // ------------------------------------------------------------------------ FUNCTIONS
 // ---------------------------------------------- public
 function pageInit() {
-  document.body.innerHTML = "<div id=\"AllContainer\"><div onscroll=\"scrolled()\" id=\"PageContainer\">" + document.body.innerHTML + "</div><div id=\"NavSpacer\"></div></div>";
+  document.body.innerHTML = "<div id=\"AllContainer\"><div onscroll=\"scrolled()\" id=\"PageContainer\">" + document.body.innerHTML + "</div><div id=\"NavSpacer\" style=\"pointer-events:none;\"></div></div>";
 }
 
 async function getJSON(url) {

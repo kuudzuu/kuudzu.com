@@ -14,16 +14,25 @@
   <!------------------------------------------ Body ------------------------------------------>
   <body id="body">
 
-    <img id="PlantsLeft" class="sticky" src="/img/thoughts/plants_left.png">
-    <img id="PlantsRight" class="sticky" src="/img/thoughts/plants_right.png">
+    <div id="Plants" class="Sticky">
+      <img id="PlantsLeft" class="Sticky" src="/img/thoughts/plants_left.png">
+      <div id="PlantSpacer"></div>
+      <img id="PlantsRight" class="Sticky" src="/img/thoughts/plants_right.png">
+    </div>
   
     <div id="ProcessingContainer">
       <div id="DisclaimerContainer">
-        <p id="DisclaimerText">Roughly chronological order, newest on top.<br>Names censored for privacy.<br><br><i>Started: 06/01/2021<br>Last updated: 10/16/2024</i></p>
+        <div id="DisclaimerText">Roughly chronological order, newest on top.
+          <br>Names censored for privacy.
+          <br><br><i>Started: 06/01/2021<br>Last updated: 8/8/2025<br>(MM/DD/YY)</i>
+        </div>
       </div>
     
       <div id="HorizontalSticky" class="Sticky"></div>
-    
+
+      <div id="NavigationPanel">
+        <button id="NavigateBackward" onclick="navigate(true)"><<<</button> Page <p id="CurrPageNum">5</p>/5<button id="NavigateForward" onclick="navigate(false)">>>></button>
+      </div>
       <div id="ProcessingImport"></div>
     </div>
   <!----------------------------------------- Scripts ---------------------------------------->

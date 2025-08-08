@@ -3,7 +3,6 @@
 // ---------------------------------------------- public
 // ---------------------------------------------- private
 function init() {
-  injectMarquees();
   prettify();
 }
 
@@ -18,13 +17,12 @@ function prettify() {
   link_pic.addEventListener('mouseleave', () => {
     link_pic.style.filter = 'brightness(1)';
   });
-  
   let guest_pic = document.getElementById("GuestbookPic")
   guest_pic.addEventListener('mouseenter', () => {
-    guest_pic.style.transform = 'rotate(10deg)';
+    guest_pic.style.transform = 'rotate(7deg)';
   });
   guest_pic.addEventListener('mouseleave', () => {
-    guest_pic.style.transform = 'rotate(0deg)';
+    guest_pic.style.transform = 'rotate(-3deg)';
   });
   
   let seed_pic = document.getElementById("SeedboxPic")
@@ -41,14 +39,8 @@ async function injectMarquees() {
   document.getElementById("Markey").innerHTML=marquees[Math.floor(Math.random()*marquees.length)].quote;
 }
 
-function unhideMarquees()
-{
-  document.getElementById("Markey").style.display = "initial";
-}
-
 // ---------------------------------------------- utility
 // ------------------------------------------------------------------------ LISTENERS
-window.addEventListener("load", unhideMarquees);
 // ------------------------------------------------------------------------ RUNNERS
 pageInit();
 init();

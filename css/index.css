@@ -11,65 +11,22 @@ body
   color: white;
 }
 
-/* Transition */
-#TransitionaryGif {
-  display: inline;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  
-  z-index: 9999999999999999999;
-  pointer-events: none;
-  image-rendering: pixelated;
-}
-#Blink1 {
+/* Transition ------------------------------------------------------------------------- */
+#TransitionContainer {
   display: none;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  
-  z-index: 9999999999999999999;
+  z-index: 9999;
   pointer-events: none;
 }
-#Blink2 {
-  display: none;
+#Blink {
+  width: 100%;
+  height: 100%;
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  
-  z-index: 9999999999999999999;
   pointer-events: none;
-}
-#TransitionBG {
-  display: none;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  
-  z-index: 999999999;
-  pointer-events: none;
-}
-#Transition {
-  display: none;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  
-  z-index: 9999999999;
-  pointer-events: none;
+
+  z-index: 9999;
 }
 
-/* iframe lmaoooo */
+/* iframe lmaoooo ------------------------------------------------------------------------- */
 #iframeHolder
 {
   height: calc(100% - 69px);
@@ -84,25 +41,7 @@ body
   overflow: hidden;
 }
 
-/* Navbar */
-/*
-#NavShading {
-  position: fixed;
-  bottom: 0;
-  width: 100vw;
-  min-width: 100vw;
-  max-width: 100vw;
-  height: 190px;
-  min-height: 190px;
-  
-  z-index: 99;
-  background-image: url('/img/index/texture/shadow.png');
-  background-size: auto 190px;
-  background-position: center;
-  background-color: rgba(0, 0, 0, 0);
-  pointer-events: none;
-}
-*/
+/* Navbar ------------------------------------------------------------------------- */
 #Navbar {
   position: fixed;
     bottom: 0;
@@ -188,7 +127,7 @@ body
   image-rendering: auto;
 }
 
-/* Icons */
+/* Icons ------------------------------------------------------------------------- */
 .NavIcon {
   height: 100%;
   width: auto;
@@ -202,12 +141,12 @@ body
 #WritingPic
 {
   cursor: pointer;
-  filter: brightness(0.7);
+  filter: brightness(0.8);
 }
 #ArtPic
 {
   cursor: pointer;
-  filter: brightness(0.85);
+  filter: brightness(0.8);
 }
 #HomePic
 {
@@ -231,6 +170,7 @@ body
   filter: brightness(0.55);
 }
 
+/* Arrows ------------------------------------------------------------------------- */
 #ArrowDown {
   position: fixed;
   left: 0;
@@ -247,7 +187,7 @@ body
 #ArrowUp {
   position: fixed;
   right: 0;
-  margin-right: 10px;
+  margin-right: 25px;
   bottom: 0;
   margin-bottom: 20px;
   height: 220px;

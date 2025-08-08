@@ -46,5 +46,5 @@ function websiteAnimate() {
 // ------------------------------------------------------------------------ LISTENERS
 // ------------------------------------------------------------------------ RUNNERS
 pageInit();
-websiteAnimate();
 disableScrolling();
+websiteAnimate();
