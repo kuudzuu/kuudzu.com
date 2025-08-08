@@ -106,7 +106,7 @@ function updateSource(source){
       break;
     case "Writing":
       src=(ORIENTATION === "Landscape" ? "writing.html": "writing.html");
-      document.getElementById("Title").innerHTML = "Invasive Writing";
+      document.getElementById("Title").innerHTML = "Invasive Dreams";
       document.getElementById('Right').src = "img/index/nav_bgs/blue.png";
       document.getElementById("WritingPic").style.backgroundColor = background_color;
       document.getElementById("WritingPic").style.boxShadow = box_shadow;
