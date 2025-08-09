@@ -16,6 +16,8 @@ function init() {
   injectText();
 }
 
+// Injects the entries into the page, complete with the divs and everything
+// File entries are taken from is denoted by PAGE_NUM upon entering this function
 async function injectText() {
   document.getElementById("ProcessingImport").innerHTML = "";
   document.getElementById("CurrPageNum").innerHTML = PAGE_NUM.toString();
@@ -35,19 +37,17 @@ function navigate(isForward) {
   if (isForward && PAGE_NUM < MAX_PAGE_NUM) {
     PAGE_NUM += 1;
     if (PAGE_NUM === MAX_PAGE_NUM) {
-      document.getElementById("NavigateBackward").style.filter = "brightness(0.5)";
+      document.getElementById("NavigateBackward").style.filter = "brightness(0.3)";
     } else {
       document.getElementById("NavigateForward").style.filter = "brightness(1)";
-      document.getElementById("NavigateBackward").style.filter = "brightness(1)";
     }
     injectText();
   } else if (!isForward && PAGE_NUM > 1) {
     PAGE_NUM -= 1;
     if (PAGE_NUM === 1) {
-      document.getElementById("NavigateForward").style.filter = "brightness(0.5)";
+      document.getElementById("NavigateForward").style.filter = "brightness(0.3)";
     } else {
       document.getElementById("NavigateBackward").style.filter = "brightness(1)";
-      document.getElementById("NavigateForward").style.filter = "brightness(1)";
     }
     injectText();
   }

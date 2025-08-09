@@ -136,17 +136,17 @@ body
 #ThoughtsPic
 {
   cursor: pointer;
-  filter: brightness(0.55);
+  filter: brightness(0.7);
 }
 #WritingPic
 {
   cursor: pointer;
-  filter: brightness(0.8);
+  filter: brightness(0.85);
 }
 #ArtPic
 {
   cursor: pointer;
-  filter: brightness(0.8);
+  filter: brightness(0.85);
 }
 #HomePic
 {
@@ -167,7 +167,7 @@ body
 #CommunityPic
 {
   cursor: pointer;
-  filter: brightness(0.55);
+  filter: brightness(0.7);
 }
 
 /* Arrows ------------------------------------------------------------------------- */

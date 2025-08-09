@@ -8,6 +8,7 @@ body
   background-size: 100% auto;
   background-color: black;
   color: white;
+  scrollbar-color: #345800 #101810;
 }
 
 /* Header --------------------------------------------------------------- */
@@ -54,7 +55,7 @@ button {
 }
 #NavigateBackward {
   padding: 0 4px;
-  filter: brightness(0.5);
+  filter: brightness(0.3);
   text-decoration: underline;
 }
 #NavigateForward {
@@ -112,7 +113,7 @@ button {
   width: 96.1%;
   min-width: 96.1%;
   margin: 2% 0 -1% 2%;
-  border: 1px solid #203d00;
+  border: 2px solid #243800;
   justify-content: center;
   display: flex;
   z-index: 99;
@@ -128,7 +129,7 @@ button {
   width: 60%;
   min-width: 60%;
   margin-left: 20%;
-  border: 1px solid #203d00;
+  border: 1px solid #243800;
   justify-content: center;
   display: flex;
   z-index: 99;
@@ -153,6 +154,7 @@ button {
   font-family: "Georgia", serif;
   font-size: 16px;
   overflow: hidden;
+  line-height: 20px;
 }
 
 /* Text --------------------------------------------------------------- */
@@ -167,7 +169,7 @@ button {
   display: flex;
   text-align: left;
   color: #FFF;
-  border-left: 2px solid #203d00;
+  border-left: 2px solid #243800;
   background-image: linear-gradient(to right, rgba(60, 60, 0, 0.7), rgba(0, 0, 0, 0));
   z-index: -1;
   position: relative;
@@ -178,13 +180,13 @@ button {
   margin-top: -20px;
   margin-bottom: -20px;
   margin-left: 25%;
-  margin-right: 20%;
-  padding: 0%;
+  margin-right: 19.9%;
+  padding: 0;
   justify-content: flex-end;
   display: flex;
   text-align: right;
   color: #CCC;
-  border-right: 2px solid #203d00;
+  border-right: 2px solid #243800;
   z-index: -1;
   position: relative;
   background-image: linear-gradient(to left, rgba(0, 50, 0, 0.7), rgba(0, 0, 0, 0));

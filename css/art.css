@@ -12,6 +12,8 @@ body
   background-attachment: fixed;
   background-color: black;
   color: white;
+
+  scrollbar-color: #540098 #101810;
 }
 .ArtPicture
 {
