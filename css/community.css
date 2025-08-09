@@ -9,22 +9,6 @@ body
   backdrop-filter: brightness(60%);
   scroll-behavior: smooth;
 }
-a:link {
-  color: #24ad24;
-  background-color: transparent;
-}
-a:visited {
-  color: #317d31;
-  background-color: transparent;
-}
-a:hover {
-  color: #00ff00;
-  background-color: transparent;
-}
-a:active {
-  color: white;
-  background-color: transparent;
-}
 
 /* Stalactites ---------------------------------------------------------------- */
 #StreamsContainer {
@@ -99,6 +83,42 @@ a:active {
   transform: rotate(-3deg);
 }
 
+/* Outreach ---------------------------------------------------------------- */
+#OutreachContainer {
+  height: 100%;
+  width: 50%;
+
+  position: absolute;
+  right: 0;
+
+  display: grid;
+  grid-template-rows: auto auto;
+  row-gap: 5%;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+#KuudzuButton {
+  justify-self: center;
+}
+#ButtonsContainer {
+  justify-self: center;
+  width: 60%;
+  height: auto;
+}
+#LinksContainer {
+  justify-self: center;
+  width: 60%;
+}
+.Button {
+  width: 88px;
+  height: 31px;
+  min-height: 31px;
+  min-width: 88px;
+
+  box-shadow: 0 -1.5px 4px 4px rgba(0,0,0,1);
+}
+
 /* Chat box ---------------------------------------------------------------- */
 #FlowerBoxSpace
 {
@@ -119,42 +139,4 @@ a:active {
   height: 100%;
 
   z-index: -1;
-}
-/* Outreach ---------------------------------------------------------------- */
-#OutreachContainer {
-  height: 100%;
-  width: 50%;
-
-  position: absolute;
-  right: 0;
-
-  display: grid;
-  grid-template-rows: auto auto;
-  row-gap: 5%;
-  justify-content: center;
-  align-content: center;
-  text-align: center;
-}
-
-#KuudzuButton {
-  justify-self: center;
-}
-
-#ButtonsContainer {
-  justify-self: center;
-  width: 60%;
-  height: auto;
-}
-
-#LinksContainer {
-  justify-self: center;
-  width: 60%;
-}
-
-.Button {
-  width: 81px;
-  height: 33px;
-  min-height: 33px;
-
-  box-shadow: 0 -1.5px 4px 4px rgba(0,0,0,1);
 }

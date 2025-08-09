@@ -18,8 +18,7 @@ function pageInit() {
 
 async function getJSON(url) {
   const response = await fetch(url);
-  const json = await response.json();
-  return json;
+  return await response.json();
 }
 
 function goToTop() {
@@ -35,7 +34,7 @@ function goToBottom() {
 } 
 
 function scrolled() {
-  if (window.top != window) {
+  if (window.top !== window) {
   let curr_height = document.getElementById('PageContainer').scrollTop;
   let max_height = document.getElementById('PageContainer').scrollHeight - document.getElementById('PageContainer').offsetHeight;
     if (curr_height <= 5) {
@@ -56,6 +55,26 @@ function disableScrolling() {
 }
 // ---------------------------------------------- private
 // ---------------------------------------------- utility
+
+// Used for processing 404s and stuff
+// Unused rn but kept in case bc i don't wanna figure this logic out again
+async function ifUrlExist(url) {
+    return new Promise((resolve, reject) => {
+        fetch(url, {
+            method: "HEAD"
+        }).then(response => {
+            resolve(response.status.toString()[0] === "2")
+        }).catch(error => {
+            reject(false)
+        })
+    })
+}
+
+// lets me delay all processing for some time i think
+const delay = millis => new Promise((resolve, reject) => {
+    setTimeout(_ => resolve(), millis)
+});
+
 // ------------------------------------------------------------------------ RUNNERS
 // ------------------------------------------------------------------------ LISTENERS
 window.addEventListener("load", window.top.endTransition);

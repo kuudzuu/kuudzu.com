@@ -14,13 +14,16 @@ BLINK_GIF.src = "img/index/transition/blink.gif";
 
 // ------------------------------------------------------------------------ FUNCTIONS
 // ---------------------------------------------- private
+
+// Runs on website open
 function init() {
-  pruneNavbar();
-  scrolled(0);
-  adjustSize();
-  deactivateArrows();
+  pruneNavbar(); // Take away icons blacklisted in global.js
+  scrolled(0); // register we are at the top of the page
+  adjustSize(); // essentially called updateSource()
 }
 
+// Goes through and removes (or hides) each page icon we don't want users to be able to navigate to
+// PAGES is the map of allowable pages in global.js
 function pruneNavbar() {
   if (!PAGES.get("Thoughts")) {
     document.getElementById("ThoughtsLink").style.display = "none";
@@ -42,7 +45,11 @@ function pruneNavbar() {
   }
 }
 
-// -------------------- Nav clicks
+// NAV CLICKS ----------------------------------------------------------------------------------------------------
+
+// Called whenever the user resizes the window (& on initial website load)
+// Only useful when I have mobile versions of each page
+// Until I have mobile up, this just calls updateSource()
 function adjustSize() {
 // Adjusts navbar and page called depending on orientation
   if (window.innerHeight > window.innerWidth && ORIENTATION !== "Portrait") {
@@ -56,6 +63,8 @@ function adjustSize() {
   }
 }
 
+// Called when user clicks on page icon on navbar
+// Starts blink animation, removes highlight from all icons, and calls updateSource()
 async function navClick(source) {
   document.getElementById("Blink").src = BLINK_GIF.src;
   if (source !== CURR_PAGE) {
@@ -65,105 +74,92 @@ async function navClick(source) {
 }
 
 function updateSource(source){
+  // Trigger blink on first navbar click (but not on initial website load)
   if (FIRST_LOAD) {
     FIRST_LOAD = false;
   } else if (document.getElementById("TransitionContainer").style.display !== "initial") {
     document.getElementById("TransitionContainer").style.display = "initial";
   }
 
+  // Init for iframe source
   src = "";
   
-  scrolled(0);
+  // PAGES is the map in global.js that denotes which pages are allowed to be accessed
+  // If user somehow navigates to these (which they shouldn't be able to due to pruneNavbar()) we stop here as a second safety mechanism
   if (!PAGES.get(source)) {
     return;
   }
 
+  // Register that we will be at the top of the new page
+  scrolled(0);
+
+  // Switch the source of the iframe
   CURR_PAGE = source;
   switch (source) {
     case "Title":
       src=(ORIENTATION === "Landscape" ? "title.html": "title.html");
-      document.getElementById("Title").innerHTML = "Invasive Website";
-      document.getElementById("Right").src = "img/index/nav_bgs/magenta.png";
-      document.getElementById("HomePic").style.backgroundColor = background_color;
-      document.getElementById("HomePic").style.boxShadow = box_shadow;
+      updateAesthetics("HomePic", "Invasive Website", "magenta");
       deactivateArrows();
       break;
     case "Art":
       src=(ORIENTATION === "Landscape" ? "art.html": "art.html");
-      document.getElementById("Title").innerHTML = "Invasive Artworks";
-      document.getElementById('Right').src = "img/index/nav_bgs/purple.png";
-      document.getElementById("ArtPic").style.backgroundColor = background_color;
-      document.getElementById("ArtPic").style.boxShadow = box_shadow;
+      updateAesthetics("ArtPic", "Invasive Art", "purple");
       activateArrow("ArrowDown");
       break;
     case "Community":
       src=(ORIENTATION === "Landscape" ? "community.html": "community.html");
-      document.getElementById("Title").innerHTML = "Invasive Community";
-      document.getElementById('Right').src = "img/index/nav_bgs/cyan.png";
-      document.getElementById("CommunityPic").style.backgroundColor = background_color;
-      document.getElementById("CommunityPic").style.boxShadow = box_shadow;
+      updateAesthetics("CommunityPic", "Invasive Community", "cyan");
       deactivateArrows();
       break;
     case "Writing":
       src=(ORIENTATION === "Landscape" ? "writing.html": "writing.html");
-      document.getElementById("Title").innerHTML = "Invasive Dreams";
-      document.getElementById('Right').src = "img/index/nav_bgs/blue.png";
-      document.getElementById("WritingPic").style.backgroundColor = background_color;
-      document.getElementById("WritingPic").style.boxShadow = box_shadow;
+      updateAesthetics("WritingPic", "Invasive Dreams", "blue");
       deactivateArrows();
       break;
     case "Thoughts":
       src=(ORIENTATION === "Landscape" ? "thoughts.html": "thoughts.html");
-      document.getElementById("Title").innerHTML = "Invasive Thoughts";
-      document.getElementById('Right').src = "img/index/nav_bgs/yellow.png";
-      document.getElementById("ThoughtsPic").style.backgroundColor = background_color;
-      document.getElementById("ThoughtsPic").style.boxShadow = box_shadow;
+      updateAesthetics("ThoughtsPic", "Invasive Thoughts", "yellow");
       activateArrow("ArrowDown");
       break;
     case "Accretion":
       src=(ORIENTATION === "Landscape" ? "accretion.html": "accretion.html");
-      document.getElementById("Title").innerHTML = "Invasive Accretion";
-      document.getElementById('Right').src = "img/index/nav_bgs/coral.png";
-      document.getElementById("AccretionPic").style.backgroundColor = background_color;
-      document.getElementById("AccretionPic").style.boxShadow = box_shadow;
+      updateAesthetics("AccretionPic", "Invasive Accretion", "coral");
       deactivateArrows();
       break;
     case "Runoff":
       src=(ORIENTATION === "Landscape" ? "runoff.html": "runoff.html");
-      document.getElementById("Title").innerHTML = "Invasive Runoff";
-      document.getElementById('Right').src = "img/index/nav_bgs/orange.png";
-      document.getElementById("RunoffPic").style.backgroundColor = background_color;
-      document.getElementById("RunoffPic").style.boxShadow = box_shadow;
+      updateAesthetics("RunoffPic", "Invasive Runoff", "orange");
       activateArrow("ArrowDown");
       break;
     default: 
       src="/404.html";
       document.getElementById("Title").innerHTML = "Missing";
-      missing = true;
       break;
   }
 
+  // If website is under construction, fuck whatever we did above!
+  // We keep the tab title and navbar color, but send users to under (if title) or missing (if anywhere else)
   if (CONSTRUCTION) {
     switch (source) {
       case "Title":
         src="under.html";
         document.getElementById("Title").innerHTML = "Under";
-        missing = true;
         break;
       default:
         src="404.html";
         document.getElementById("Title").innerHTML = "Missing";
-        missing = true;
         break;
     }
     deactivateArrows();
   }
-  
-  iframe.src = src;
 
+  // update source and send users on their way
+  iframe.src = src;
 }
 
-// -------------------- Navbar update
+// NAV STYLE ----------------------------------------------------------------------------------------------------
+
+// Removes the "highlight" box from everywhere
 function setAllBlack() {
   document.getElementById("HomePic").style.backgroundColor = "rgba(0, 0, 0, 0)";
   document.getElementById("HomePic").style.boxShadow = ``;
@@ -185,23 +181,34 @@ function setAllBlack() {
   
   document.getElementById("RunoffPic").style.backgroundColor = "rgba(0, 0, 0, 0)";
   document.getElementById("RunoffPic").style.boxShadow = ``;
-  
 }
 
-// -------------------- Go to top/bottom
+// Updates tab title, navbar color, and where the highlight is placed
+function updateAesthetics(highlighted_pic, title, navbar_color) {
+  document.getElementById("Title").innerHTML = title;
+  document.getElementById('Right').src = "img/index/nav_bgs/" + navbar_color + ".png";
+  document.getElementById(highlighted_pic).style.backgroundColor = background_color;
+  document.getElementById(highlighted_pic).style.boxShadow = box_shadow;
+}
+
+// ARROWS & SCROLLING ----------------------------------------------------------------------------------------------------
+
+// This is called by the arrows, just serves as an intermediary to call the goToTop in global.js
 function goToTop() {
   iframe.contentWindow.goToTop();
-} 
-
+}
+// This is called by the arrows, just serves as an intermediary to call the goToBottom in global.js
 function goToBottom() {
   iframe.contentWindow.goToBottom();
-} 
+}
 
+// Remove both arrows lol
 function deactivateArrows() {
   deactivateArrow("ArrowDown");
   deactivateArrow("ArrowUp");
 }
 
+// Make specified arrow show up
 function activateArrow(id) {
   let arrow = document.getElementById(id)
   
@@ -213,6 +220,7 @@ function activateArrow(id) {
   arrow.addEventListener('mouseup', () => { deactivateArrow(id); }, true);
 }
 
+// Hide specified arrow
 function deactivateArrow(id) {
   let arrow = document.getElementById(id)
   
@@ -224,17 +232,18 @@ function deactivateArrow(id) {
   arrow.removeEventListener('mouseup', () => { deactivateArrow(id); }, true);
 }
 
+// Used for arrow haptics
 function bobArrowUp(id) {
   document.getElementById(id).style.transform = 'translateY(-25px)';
 }
+
+// Used for arrow haptics
 function bobArrowDown(id) {
   document.getElementById(id).style.transform = 'translateY(0px)';
 }
 
+// Called on initial website load
 function scrolled(position) {
-  let down_arrow = document.getElementById("ArrowDown");
-  let up_arrow = document.getElementById("ArrowUp");
-  
   switch (position) {
     case 0:
       // at top
@@ -253,49 +262,10 @@ function scrolled(position) {
   }
 }
 
-// -------------------- Error 404
-async function handleLoad() {
-// (Mostly) fixes bugs with clicking on pages that don't exist. 
-// Likely deprecated once all index click buttons have been filled?
-// We'll see abt sub pages.
-  const urlExists = await ifUrlExist(document.getElementById('iframe').src)
-  if (!urlExists && on404) {
-    ON_404 = false;
-    setAllBlack();
-    document.getElementById("Title").innerHTML = "Invasive Website";
-    document.getElementById('RightNav').src = "/img/index/nav_right_magenta.jpg";
-    document.getElementById("HomePic").style.backgroundColor = "rgba(255, 255, 255, 0.2)";
-    document.getElementById("HomePic").style.boxShadow = `-1px -3px 0 2px #000 inset, -2px -4px 0 3px rgba(0, 0, 0, 0.5) inset, 1px 0px 0 1px rgba(255, 255, 255, 0.75) inset, 2px 1px 0 2px rgba(255, 255, 255, 0.3) inset`;
-  } else if (!urlExists) {
-    ON_404 = true;
-  } else {
-    ON_404 = false;
-  }
-}
-
-// ---------------------------------------------- utility
-async function ifUrlExist(url) {
-    return new Promise((resolve, reject) => {
-        fetch(url, {
-            method: "HEAD"
-        }).then(response => {
-            resolve(response.status.toString()[0] === "2")
-        }).catch(error => {
-            reject(false)
-        })
-    })
-}
-
-const delay = millis => new Promise((resolve, reject) => {
-  setTimeout(_ => resolve(), millis)
-});
 
 // ---------------------------------------------- public
 // ------------------------------------------------------------------------ LISTENERS
-window.addEventListener('resize', adjustSize);
-$('#iframe').on('load', function() {
-    handleLoad();
-});
+window.addEventListener('resize', adjustSize); // Register that we adjust window size (for when mobile is implemented)
 
 document.getElementById('ArrowDown').addEventListener('mouseenter', () => {
   document.getElementById('ArrowDown').style.transform = 'translateY(-25px)';
@@ -311,4 +281,5 @@ document.getElementById('ArrowUp').addEventListener('mouseleave', () => {
   document.getElementById('ArrowUp').style.transform = 'translateY(0px)';
 });
 
+// ------------------------------------------------------------------------
 init();

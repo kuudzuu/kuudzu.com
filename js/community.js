@@ -17,6 +17,7 @@ function prettify() {
   link_pic.addEventListener('mouseleave', () => {
     link_pic.style.filter = 'brightness(1)';
   });
+
   let guest_pic = document.getElementById("GuestbookPic")
   guest_pic.addEventListener('mouseenter', () => {
     guest_pic.style.transform = 'rotate(7deg)';
@@ -32,11 +33,6 @@ function prettify() {
   seed_pic.addEventListener('mouseleave', () => {
     seed_pic.style.transform = 'rotate(-10deg)';
   });
-}
-
-async function injectMarquees() {
-  let marquees = await getJSON("json/community.json");
-  document.getElementById("Markey").innerHTML=marquees[Math.floor(Math.random()*marquees.length)].quote;
 }
 
 // ---------------------------------------------- utility
