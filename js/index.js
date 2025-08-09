@@ -12,6 +12,8 @@ let background_color = "rgba(255, 255, 255, 0.2)";
 var BLINK_GIF = new Image();
 BLINK_GIF.src = "img/index/transition/blink.gif";
 
+let BACK_FORWARDS = false;
+
 // ------------------------------------------------------------------------ FUNCTIONS
 // ---------------------------------------------- private
 
@@ -153,8 +155,51 @@ function updateSource(source){
     deactivateArrows();
   }
 
-  // update source and send users on their way
-  iframe.src = src;
+  // This surrounding if statement prevents double-loading on back/forward button navigation
+  if (!BACK_FORWARDS) {
+    // update source and send users on their way
+    iframe.src = src;
+  }
+  BACK_FORWARDS = false;
+}
+
+// Called whenever the iframe loads a new page
+// On standard nav clicks, this does nothing
+// If user pressed back/forwards button, there will be a discrepancy between shown page and logged page
+// (read: discrepancy between iframe src and internal iframe document URL)
+// This updates all visual information to be consistent with displayed page
+function verifyURL() {
+  var curr_source = urlToSource();
+  if (curr_source !== CURR_PAGE) {
+    BACK_FORWARDS = true;
+    setAllBlack();
+    updateSource(curr_source);
+  }
+}
+
+// Gets the INTERNAL url of the iframe and returns the shorthand equivalent
+// This is bc iframe src and internal iframe document URL become desynced when back/forward button is used to navigate
+function urlToSource() {
+  var new_source = "";
+  var curr_source = iframe.contentWindow.document.URL;
+  if (curr_source.includes("title")) {
+    new_source = "Title";
+  } else if (curr_source.includes("writing")) {
+    new_source = "Writing";
+  } else if (curr_source.includes("art")) {
+    new_source = "Art";
+  } else if (curr_source.includes("community")) {
+    new_source = "Community";
+  } else if (curr_source.includes("thoughts")) {
+    new_source = "Thoughts";
+  } else if (curr_source.includes("accretion")) {
+    new_source = "Accretion";
+  } else if (curr_source.includes("runoff")) {
+    new_source = "Runoff";
+  } else {
+    new_source = "404";
+  }
+  return new_source;
 }
 
 // NAV STYLE ----------------------------------------------------------------------------------------------------
@@ -210,8 +255,8 @@ function deactivateArrows() {
 
 // Make specified arrow show up
 function activateArrow(id) {
-  let arrow = document.getElementById(id)
-  
+  let arrow = document.getElementById(id);
+
   arrow.style.pointerEvents = "auto";
   arrow.style.transform = 'translateY(0px)';
   
@@ -222,14 +267,15 @@ function activateArrow(id) {
 
 // Hide specified arrow
 function deactivateArrow(id) {
-  let arrow = document.getElementById(id)
-  
+  let arrow = document.getElementById(id);
+
   arrow.style.pointerEvents = "none";
-  arrow.style.transform = "translateY(200px)";
-  
+
   arrow.removeEventListener('mouseenter', () => { bobArrowUp(id); }, true);
   arrow.removeEventListener('mouseleave', () => { bobArrowDown(id); }, true);
   arrow.removeEventListener('mouseup', () => { deactivateArrow(id); }, true);
+
+  arrow.style.transform = "translateY(200px)";
 }
 
 // Used for arrow haptics
@@ -243,6 +289,7 @@ function bobArrowDown(id) {
 }
 
 // Called on initial website load
+// And from global.js whenever iframe is scrolled
 function scrolled(position) {
   switch (position) {
     case 0:
