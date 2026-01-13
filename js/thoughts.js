@@ -7,7 +7,7 @@ INTRO_RIGHT = `<div id="Horizontal"></div>
 
 ENDING = "</div></div>"
 
-let MAX_PAGE_NUM = 5;
+let MAX_PAGE_NUM = 6;
 let PAGE_NUM = MAX_PAGE_NUM;
 // ------------------------------------------------------------------------ FUNCTIONS
 // ---------------------------------------------- public

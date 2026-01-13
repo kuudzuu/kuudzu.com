@@ -203,16 +203,7 @@ SLEEP_PAGES = [
 ]
 
 async function injectText(text) {
-    insertion_idxs = []
-    for (let i = 0; i < text.length; i++) {
-        if (text[i] === '\n') {
-            insertion_idxs.push(i);
-        }
-    }
-    for (let i = insertion_idxs.length - 1; i >= 0; i--) {
-        text = text.slice(0,insertion_idxs[i]) + "<br>" + text.slice(insertion_idxs[i]);
-    }
-
+    text = spaceText(text);
     text = "<div id='InnerText'>" + text + "</div><br><br><br><br><br><br><br>"
     document.getElementById("Writing").innerHTML = text;
 }

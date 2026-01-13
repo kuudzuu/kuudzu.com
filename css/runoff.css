@@ -7,18 +7,258 @@ body
   background-position-x: center;
   background-position-y: 40%;
   background-attachment: fixed;
-  background-size: 100%;
+  background-size: cover;
   background-color: black;
+  backdrop-filter: brightness(0.7);
   color: white;
-}
-#RunoffContainerTemp
-{
-  margin: 2% auto 0;
-  width: 92%;
-  min-height: 80vh;
-  
   overflow: hidden;
-  
-  background-color: rgba(0, 0, 0, .7);
-  border: 2px solid #653000;
+
+  display: flex;
+
+  scrollbar-color: #773300 #101810;
+}
+
+/* PAGE DECO -------------------------------------------------------------------------------------------------------- */
+#Girder {
+  width: 100%;
+
+  margin-top: -10%;
+  position: absolute;
+}
+#Rope {
+  width: 100%;
+  overflow: visible;
+  background-image: url("/img/runoff/rope.png");
+  background-size: 7%;
+  background-position: center;
+  background-repeat: repeat-y;
+}
+
+/* CUTOUT1 -------------------------------------------------------------------------------------------------------- */
+#Cutout1 {
+  width: 92vw;
+  height: 70%;
+  max-height: 40vw;
+  left: -55%;
+  margin-top: 10%;
+  top: 0;
+
+  position: absolute;
+
+  transition: transform 0.3s ease-in-out;
+}
+#Rubble1 {
+  width: 40%;
+  left: 60%;
+  margin-top: -7.5%;
+  height: auto;
+
+  position: absolute;
+  z-index: 2;
+
+  transform: rotate(10deg);
+}
+#Visual1 {
+  width: 75%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.7);
+  border: solid 2px #773300;
+
+  position: relative;
+}
+#Label1 {
+  height: 50%;
+  max-width: 20%;
+  bottom: 2%;
+  right: 2%;
+  position: absolute;
+
+  font-size: 50px;
+}
+#Content1 {
+  width: 70%;
+  height: 86%;
+  margin-top: 2%;
+  left: 5%;
+  padding: 2%;
+  position: absolute;
+
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  mask-image: linear-gradient(to bottom, black 83%, transparent 100%);
+}
+
+/* CUTOUT2 -------------------------------------------------------------------------------------------------------- */
+#Cutout2 {
+  width: 92vw;
+  height: 70%;
+  max-height: 40vw;
+  right: -78%;
+  margin-top: 50%;
+
+  position: absolute;
+
+  transition: transform 0.3s ease-in-out;
+}
+#Rubble2 {
+  width: 20%;
+  right: 85%;
+  margin-top: 0%;
+  height: auto;
+
+  position: absolute;
+  z-index: 2;
+
+  transform: rotate(-10deg);
+}
+#Visual2 {
+  width: 75%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.7);
+  border: solid 2px #773300;
+
+  position: relative;
+}
+#Label2 {
+  height: 50%;
+  max-width: 20%;
+  bottom: 2%;
+  left: 2%;
+  position: absolute;
+
+  font-size: 50px;
+}
+#Content2 {
+  width: 70%;
+  height: 86%;
+  margin-top: 2%;
+  right: 5%;
+  padding: 2%;
+  position: absolute;
+
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  mask-image: linear-gradient(to bottom, black 83%, transparent 100%);
+}
+
+/* CUTOUT3 -------------------------------------------------------------------------------------------------------- */
+#Cutout3 {
+  width: 92vw;
+  height: 70%;
+  max-height: 40vw;
+  left: -55%;
+  margin-top: 90%;
+  top: 0;
+
+  position: absolute;
+
+  transition: transform 0.3s ease-in-out;
+}
+#Rubble3 {
+  width: 40%;
+  left: 60%;
+  margin-top: -8.5%;
+  height: auto;
+
+  position: absolute;
+  z-index: 2;
+
+  transform: rotate(-10deg);
+}
+#Visual3 {
+  width: 75%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.7);
+  border: solid 2px #773300;
+
+  position: relative;
+}
+#Label3 {
+  height: 48%;
+  max-width: 20%;
+  bottom: 2%;
+  right: 2%;
+  position: absolute;
+
+  font-size: 50px;
+}
+#Content3 {
+  width: 70%;
+  height: 86%;
+  margin-top: 2%;
+  left: 5%;
+  padding: 2%;
+  position: absolute;
+
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  mask-image: linear-gradient(to bottom, black 83%, transparent 100%);
+}
+
+/* CUTOUT4 -------------------------------------------------------------------------------------------------------- */
+#Cutout4 {
+  width: 92vw;
+  height: 70%;
+  max-height: 40vw;
+  right: -78%;
+  margin-top: 130%;
+
+  position: absolute;
+
+  transition: transform 0.3s ease-in-out;
+}
+#Rubble4 {
+  width: 23%;
+  right: 85%;
+  margin-top: -1%;
+  height: auto;
+
+  position: absolute;
+  z-index: 2;
+
+  transform: rotate(-10deg);
+}
+#Visual4 {
+  width: 75%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.7);
+  border: solid 2px #773300;
+
+  position: relative;
+}
+#Label4 {
+  height: 50%;
+  max-width: 20%;
+  bottom: 2%;
+  left: 2%;
+  position: absolute;
+
+  font-size: 50px;
+}
+#Content4 {
+  width: 70%;
+  height: 86%;
+  margin-top: 2%;
+  right: 5%;
+  padding: 2%;
+  position: absolute;
+
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  mask-image: linear-gradient(to bottom, black 83%, transparent 100%);
+}
+
+/* UNIVERSAL ------------------------------------------------------------------------------------------------------ */
+.content {
+  font-size: 16px;
+  line-height: 20px;
+  font-family: "Georgia", serif;
 }

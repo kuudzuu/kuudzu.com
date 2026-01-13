@@ -6,8 +6,8 @@ let PAGES = new Map([
     ["Thoughts", true],
     ["Writing", true],
     ["Art", true],
-    ["Accretion", false],
-    ["Runoff", false],
+    ["Accretion", true],
+    ["Runoff", true],
     ["Community", true],
 ]);
 // ------------------------------------------------------------------------ FUNCTIONS
@@ -19,6 +19,24 @@ function pageInit() {
 async function getJSON(url) {
   const response = await fetch(url);
   return await response.json();
+}
+
+async function getTextFile(url) {
+    const response = await fetch(url);
+    return await response.text();
+}
+
+function spaceText(text) {
+    insertion_idxs = []
+    for (let i = 0; i < text.length; i++) {
+        if (text[i] === '\n') {
+            insertion_idxs.push(i);
+        }
+    }
+    for (let i = insertion_idxs.length - 1; i >= 0; i--) {
+        text = text.slice(0,insertion_idxs[i]) + "<br>" + text.slice(insertion_idxs[i]);
+    }
+    return text;
 }
 
 function goToTop() {
