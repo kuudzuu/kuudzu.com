@@ -124,14 +124,12 @@ body
 {
   position: absolute;
   top: 25%;
-  right: 8%;
-  width: 18%;
+  right: 6.5%;
+  width: 37%;
   height: 45%;
 
   border: 1px solid white;
   box-shadow: -4px 6px 2px 2px #065421, 4px -6px 2px 2px #076269;
-
-  display: none;
 }
 #FlowerBox
 {
