@@ -3,12 +3,16 @@ var IS_HIDDEN = [
     true, // 1
     true, // 2
     true,
-    true
+    true,
+    true,
+    true,
 ];
 
 var IS_BOBBED = [
     false, // 1
     false, // 2
+    false,
+    false,
     false,
     false,
 ]
@@ -32,6 +36,14 @@ async function init() {
     let Content4 = await getTextFile("json/runoff/berserk.txt");
     Content4 = spaceText(Content4) + "<br><br><br><br><br><br><br>";
     document.getElementById("Content4").innerHTML = Content4;
+
+    let Content5 = await getTextFile("json/runoff/houseofleaves.txt");
+    Content5 = spaceText(Content5) + "<br><br><br><br><br><br><br>";
+    document.getElementById("Content5").innerHTML = Content5;
+
+    let Content6 = await getTextFile("json/runoff/saidtheice.txt");
+    Content6 = spaceText(Content6) + "<br><br><br><br><br><br><br>";
+    document.getElementById("Content6").innerHTML = Content6;
 }
 
 // Can I be honest im fucking sorry for this one
@@ -115,11 +127,15 @@ document.getElementById('Rubble1').addEventListener('mouseenter', function() { b
 document.getElementById('Rubble2').addEventListener('mouseenter', function() { bobCutout(2); }, true);
 document.getElementById('Rubble3').addEventListener('mouseenter', function() { bobCutout(3); }, true);
 document.getElementById('Rubble4').addEventListener('mouseenter', function() { bobCutout(4); }, true);
+document.getElementById('Rubble5').addEventListener('mouseenter', function() { bobCutout(5); }, true);
+document.getElementById('Rubble6').addEventListener('mouseenter', function() { bobCutout(6); }, true);
 
 document.getElementById('Rubble1').addEventListener('mouseleave', function() { bobCutout(1); }, true);
 document.getElementById('Rubble2').addEventListener('mouseleave', function() { bobCutout(2); }, true);
 document.getElementById('Rubble3').addEventListener('mouseleave', function() { bobCutout(3); }, true);
 document.getElementById('Rubble4').addEventListener('mouseleave', function() { bobCutout(4); }, true);
+document.getElementById('Rubble5').addEventListener('mouseleave', function() { bobCutout(5); }, true);
+document.getElementById('Rubble6').addEventListener('mouseleave', function() { bobCutout(6); }, true);
 
 window.addEventListener('load', adjustContainerHeight);
 window.addEventListener('resize', adjustContainerHeight);
