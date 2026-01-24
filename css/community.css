@@ -84,12 +84,12 @@ body
 }
 
 /* Outreach ---------------------------------------------------------------- */
-#OutreachContainer {
-  height: 100%;
-  width: 50%;
-
+#RightContainer {
   position: absolute;
-  right: 0;
+  top: 25%;
+  right: 6.5%;
+  width: 37%;
+  height: 45%;
 
   display: grid;
   grid-template-rows: auto auto;
@@ -98,43 +98,9 @@ body
   align-content: center;
   text-align: center;
 }
-#KuudzuButton {
-  justify-self: center;
-}
-#ButtonsContainer {
-  justify-self: center;
-  width: 60%;
-  height: auto;
-}
-#LinksContainer {
-  justify-self: center;
-  width: 60%;
-}
-.Button {
-  width: 88px;
-  height: 31px;
-  min-height: 31px;
-  min-width: 88px;
-
-  box-shadow: 0 -1.5px 4px 4px rgba(0,0,0,1);
-}
-
-/* Chat box ---------------------------------------------------------------- */
-#FlowerBoxSpace
-{
-  position: absolute;
-  top: 25%;
-  right: 6.5%;
-  width: 37%;
-  height: 45%;
-
-  border: 1px solid white;
-  box-shadow: -4px 6px 2px 2px #065421, 4px -6px 2px 2px #076269;
-}
-#FlowerBox
-{
-  width: 100%;
-  height: 100%;
-
-  z-index: -1;
+#EmptyPic {
+  margin-left: 10%;
+  width: 80%;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
 }
