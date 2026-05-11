@@ -119,3 +119,20 @@ body
 h1 {
   margin-bottom: 0%
 }
+
+/* The little <<< and >>> buttons */
+button {
+  background: none;
+  border: none;
+  color: white;
+  font-family: "Georgia", serif;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
+#ScrollButton {
+  background: none;
+  padding: 0 4px;
+  text-decoration: underline;
+}

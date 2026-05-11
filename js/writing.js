@@ -73,11 +73,16 @@ Sleep wants to envelop you, dark blue and iridescent and humming. It will lower 
 Sleep is a deity. Sleep is a religion. We offer our body in worship to it every night. 
 
 This ritual is sacred. I have documented it here.
+
+<button id="ScrollButton" onclick="scrollText(true)">>>></button>
 `
 
 STAGE_1 = `<h1> Poolside </h1>
 <hr>
-Your ankles flash in the sun. The pool is bright, unnatural blue but comfort. Whiteblind flashes fill your vision, and cause you small smiles. You feel invited to dip your leg in the water; it is cool. There's nobody nearby, but chatter hangs in the air. It's all from you, and it’s home. Your oval eyes draw redorange black over it all. Colors dance and patterns rear and throb, reminding you of your heavy pulse. Stretch out, you have laid your body down gladly - it is weary.`
+Your ankles flash in the sun. The pool is bright, unnatural blue but comfort. Whiteblind flashes fill your vision, and cause you small smiles. You feel invited to dip your leg in the water; it is cool. There's nobody nearby, but chatter hangs in the air. It's all from you, and it’s home. Your oval eyes draw redorange black over it all. Colors dance and patterns rear and throb, reminding you of your heavy pulse. Stretch out, you have laid your body down gladly - it is weary.
+
+<button id="ScrollButton" onclick="scrollText(false)"><<<</button> <button id="ScrollButton" onclick="scrollText(true)">>>></button>
+`
 
 STAGE_2 = `<h1> Dissolution </h1>
 <hr>
@@ -107,6 +112,8 @@ Echoey, dripping, and flashing
 It is easy to forget here. Nothing wants your attention
 
 But it is lonely on the highway, and the great beast shudders toward you, tranquil
+
+<button id="ScrollButton" onclick="scrollText(false)"><<<</button> <button id="ScrollButton" onclick="scrollText(true)">>>></button>
 `
 
 STAGE_3 = `<h1> The Great Beast </h1>
@@ -124,6 +131,8 @@ You have no purpose here, thank god
 Your body does not judge, even if you wanted it to
 You are soft. You are naked. You are worked through in stillness
 You are a package with no recipient, lost in the safety of transit
+
+<button id="ScrollButton" onclick="scrollText(false)"><<<</button> <button id="ScrollButton" onclick="scrollText(true)">>>></button>
 `
 
 STAGE_4 = `<h1> Here </h1>
@@ -143,6 +152,8 @@ What makes you you is beyond submerged.
 Complete, smooth, and dark.
 
 You are beautiful here.
+
+<button id="ScrollButton" onclick="scrollText(false)"><<<</button> <button id="ScrollButton" onclick="scrollText(true)">>>></button>
 `
 
 STAGE_5 = `<h1> The Great Pond </h1>
@@ -156,6 +167,8 @@ Long draping white cords adorned with triangular flags waving at regular interva
 The men balked. One opened his mouth, squinting in the growing light and nervously ambling around the perimeter of the ghastly construct, but did not say anything. The conspiratorially forced small talk between the men ceased without conflict. The second man similarly circled, as though scrutinizing it for a sign that would absolve him of his duty. The first shouted something - the words were utterly lost the second the light caught them, but the effect was immediate. One made a whooping sound and jumped up, trailing jittering frilly afterimages as he moved in the gathering blinding sunglow. The other broke into a large smile, one that made his eyes shine with a frightening degree of mirth, as though all the unnatural apprehension from the moment prior was transformed in an instant into just as unnatural elation. He eagerly grabbed one canvas corner of the tent with both hands, and ripped upward. The other man followed suit, and the tent was uprooted to the sky in a single billowing yank.
 
 Many bodies simultaneously ran and jumped and twirled haltingly in slow motion, the world on halfspeed, pouring out from where they had been cramped to stream across the meadow in the pure haze. Some were missing limbs, some had bleached patches of dead flesh, some were actively bleeding. Many had no eyes, and the skin on their faces was ragged and peeling and burnt. They shuttered, smiling and blissful in a lively but faded underwater dance, trailing peculiar flashing afterimages and ribbons. The foggy white light crowded in, and a low moaning organ melody echoed over the grass.
+
+<button id="ScrollButton" onclick="scrollText(false)"><<<</button> <button id="ScrollButton" onclick="scrollText(true)">>>></button>
 `
 
 STAGE_6 = `<h1> Aftersleep </h1>
@@ -190,6 +203,8 @@ The unintentional secrets of the waking mind. Hidden from even yourself in 3, 2,
 This gap fears you in a mechanical way;
 nothing about it makes you wary, but you feel like it should, so you are wary.
 And so you realize you are awake.
+
+<button id="ScrollButton" onclick="scrollText(false)"><<<</button>
 `
 
 SLEEP_PAGES = [
