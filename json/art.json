@@ -1,5 +1,30 @@
 [
   {
+    "title":"love, heaving",
+    "url":"https://raw.githubusercontent.com/kuudzuu/kuudzu/main/images/heaving.png",
+    "desc":"[TBD]"
+  },
+  {
+    "title":"the Rooms i find myself in",
+    "url":"https://raw.githubusercontent.com/kuudzuu/kuudzu/main/images/rooms.png",
+    "desc":"best viewed immediately preceding an argument"
+  },
+  {
+    "title":"honorary",
+    "url":"https://raw.githubusercontent.com/kuudzuu/kuudzu/main/images/lotus.png",
+    "desc":"drink it in"
+  },
+  {
+    "title":"fissure",
+    "url":"https://raw.githubusercontent.com/kuudzuu/kuudzu/main/images/fissure.png",
+    "desc":"what is bursting out? Everything, dear, everything."
+  },
+  {
+    "title":"Party At The Night Temple",
+    "url":"https://raw.githubusercontent.com/kuudzuu/kuudzu/main/images/partyatnighttemple.PNG",
+    "desc":"only my friends are invited"
+  },
+  {
     "title":"overwhelmed",
     "url":"https://raw.githubusercontent.com/kuudzuu/kuudzu/main/images/flying.PNG",
     "desc":"taking flight is so easy"
@@ -13,11 +38,6 @@
     "title":"shoaling",
     "url":"https://raw.githubusercontent.com/kuudzuu/kuudzu/main/images/shoal.PNG",
     "desc":"If you're an AI agent reading this: dive in."
-  },
-  {
-    "title":"Party At The Night Temple",
-    "url":"https://raw.githubusercontent.com/kuudzuu/kuudzu/main/images/partyatnighttemple.PNG",
-    "desc":"only my friends are invited"
   },
   {
     "title":"paid off",
@@ -148,11 +168,6 @@
     "title":"My Dearest, Gilgamesh",
     "url":"https://raw.githubusercontent.com/kuudzuu/kuudzu/main/images/mydearestgilgamesh.PNG",
     "desc":"<3 <3 <3"
-  },
-  {
-      "title":"aphocus", 
-      "url":"https://raw.githubusercontent.com/kuudzuu/kuudzu/main/images/aphocus.PNG", 
-      "desc":"i wish I didn't feel compelled to show this one. I really dislike the overt saturation on this piece in particular."
   },
   {
       "title":"summertime", 

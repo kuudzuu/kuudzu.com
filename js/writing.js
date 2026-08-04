@@ -60,11 +60,12 @@ init();
 disableScrolling();
 
 // ------------------------------------------------------------------------ SWITCHING THE TEXT
+bad = "You cannot make sleep your bitch, y"
 INTRO = `<h1> There is more to life than being awake </h1>
 <hr>
 One remarkable thing is that we sleep. We sleep again and again and again. So many times that it seems we will never get enough of it.
 
-I understand sleep as something you must give yourself over to. Not from desperation, but from love. Sleep will be compassionate to you if you are kind to it. Sleep is fair, but not benevolent. Sleep will not give you a second chance. You cannot make sleep your bitch, you cannot slap it and tell it to do its thing and leave.
+I understand sleep as something you must give yourself over to. Not from desperation, but from love. Sleep will be compassionate to you if you are kind to it. Sleep is fair, but not benevolent. Sleep will not give you a second chance. You cannot slap it and tell it to do its thing and leave.
 
 Sleep is larger than you. You will spend a long, long time devoted to it. It will care for you, respect you, but you must offer it your gentle and natural attention. You must show up with open eyes and an early mind. You must give up to it.
 
