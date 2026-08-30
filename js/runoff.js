@@ -25,7 +25,7 @@ async function init() {
     Content1 = spaceText(Content1) + "<br><br><br><br><br><br><br>";
     document.getElementById("Content1").innerHTML = Content1;
 
-    let Content2 = await getTextFile("json/runoff/theocean.txt");
+    let Content2 = await getTextFile("json/runoff/misty.txt");
     Content2 = spaceText(Content2) + "<br><br><br><br><br><br><br>";
     document.getElementById("Content2").innerHTML = Content2;
 
