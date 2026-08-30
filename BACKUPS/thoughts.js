@@ -20,8 +20,8 @@ function init() {
 // File entries are taken from is denoted by PAGE_NUM upon entering this function
 async function injectText() {
   document.getElementById("ProcessingImport").innerHTML = "";
-  //let thoughts = await getJSON("/json/thoughts/processing" + PAGE_NUM.toString() + ".json");
-  let thoughts = await getJSON("/json/thoughts/poems.json");
+  document.getElementById("CurrPageNum").innerHTML = PAGE_NUM.toString();
+  let thoughts = await getJSON("/json/thoughts/processing" + PAGE_NUM.toString() + ".json");
   var innerHTML = "";
   
   for (let i = 0; i < thoughts.length; i++) {
@@ -33,6 +33,25 @@ async function injectText() {
   document.getElementById("ProcessingImport").innerHTML += innerHTML;
 }
 
+function navigate(isForward) {
+  if (isForward && PAGE_NUM < MAX_PAGE_NUM) {
+    PAGE_NUM += 1;
+    if (PAGE_NUM === MAX_PAGE_NUM) {
+      document.getElementById("NavigateBackward").style.filter = "brightness(0.3)";
+    } else {
+      document.getElementById("NavigateForward").style.filter = "brightness(1)";
+    }
+    injectText();
+  } else if (!isForward && PAGE_NUM > 1) {
+    PAGE_NUM -= 1;
+    if (PAGE_NUM === 1) {
+      document.getElementById("NavigateForward").style.filter = "brightness(0.3)";
+    } else {
+      document.getElementById("NavigateBackward").style.filter = "brightness(1)";
+    }
+    injectText();
+  }
+}
 // ---------------------------------------------- utility
 // ------------------------------------------------------------------------ LISTENERS
 // ------------------------------------------------------------------------ RUNNERS
